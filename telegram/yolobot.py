@@ -11,7 +11,11 @@ def handle(msg):
 
     if content_type == 'text' and msg['text'] == '/yolo':
         r = requests.get('https://get.yolo.jetzt')
-        bot.sendMessage(chat_id, r.text)
+        i = int(r.text)
+        if i > 9000:
+            bot.sendMessage(chat_id, 'OVER NINETHOUSAND!!!')
+        else:
+            bot.sendMessage(chat_id, r.text)
 
 TOKEN = sys.argv[1]
 
